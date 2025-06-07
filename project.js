@@ -13,6 +13,7 @@ function login() {
 
   if (matchedStudent) {
     localStorage.setItem("loggedInStudentID", matchedStudent.id);
+
     // For student login
     window.location.href = "student-dashboard/student.html";
   } else if (username === "admin" && password === "admin123") {
@@ -21,5 +22,5 @@ function login() {
   } else {
     alert("Invalid credentials!");
   }
-  window.location.href = "/index.html";
+  window.location.href = "../index.html"; // Redirect to the root index page
 }

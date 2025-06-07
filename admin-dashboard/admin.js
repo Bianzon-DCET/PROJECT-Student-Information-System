@@ -256,3 +256,8 @@ window.onclick = function (event) {
   if (event.target == enrollModal) closeModal();
   if (event.target == scheduleModal) closeScheduleModal();
 };
+
+// For student login
+window.location.href = "student-dashboard/student.html";
+// For admin login
+window.location.href = "admin-dashboard/admin.html";

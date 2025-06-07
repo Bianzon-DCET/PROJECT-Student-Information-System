@@ -120,3 +120,8 @@ function logout() {
   localStorage.removeItem("loggedInStudentID");
   window.location.href = "../index.html"; // Go up one folder to root
 }
+
+// For student login
+window.location.href = "student-dashboard/student.html";
+// For admin login
+window.location.href = "admin-dashboard/admin.html";
