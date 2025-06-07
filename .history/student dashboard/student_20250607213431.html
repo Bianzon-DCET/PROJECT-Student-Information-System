@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student Dashboard</title>
+    <link rel="stylesheet" href="student.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h2>Student Dashboard</h2>
+      <button class="logout-btn" onclick="logout()">Logout</button>
+
+      <h3>Profile Details</h3>
+      <p><strong>Name:</strong> <span id="studentName"></span></p>
+      <p><strong>Student ID:</strong> <span id="studentID"></span></p>
+      <p><strong>Email:</strong> <span id="studentEmail"></span></p>
+      <p><strong>Contact:</strong> <span id="studentContact"></span></p>
+
+      <h3>Enrolled Course</h3>
+      <p><strong>Course:</strong> <span id="studentCourse"></span></p>
+
+      <h3>Grades</h3>
+      <table id="gradeTable">
+        <tr>
+          <th>Course</th>
+          <th>Grade</th>
+        </tr>
+      </table>
+
+      <h3>Attendance</h3>
+      <ul id="attendanceList"></ul>
+
+      <h3>Billing Status</h3>
+      <p><strong>Status:</strong> <span id="billingStatus"></span></p>
+
+      <h3>Schedule</h3>
+      <ul id="scheduleList"></ul>
+    </div>
+    <script src="student.js"></script>
+  </body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="admin.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h2>Admin Dashboard</h2>
+      <button class="logout-btn" onclick="logout()">Logout</button>
+
+      <h3>Student List</h3>
+      <table id="studentTable">
+        <tr>
+          <th>Name</th>
+          <th>ID</th>
+          <th>Course</th>
+          <th>Grade</th>
+          <th>Actions</th>
+        </tr>
+      </table>
+
+      <div class="form-section">
+        <h3>Enroll Student</h3>
+        <button onclick="openModal()">Enroll Student</button>
+      </div>
+    </div>
+    <div id="enrollModal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <h3>Enroll New Student</h3>
+        <form id="enrollForm">
+          <input
+            type="text"
+            id="modalStudentName"
+            placeholder="Name"
+            required
+          />
+          <input
+            type="text"
+            id="modalStudentID"
+            placeholder="Student ID"
+            required
+          />
+          <select id="modalStudentCourse" required>
+            <option value="">Select Course</option>
+            <option value="BSIT">BSIT</option>
+            <option value="BSCS">BSCS</option>
+            <option value="BSEd">BSEd</option>
+            <option value="BSBA">BSBA</option>
+            <option value="BSA">BSA</option>
+            <option value="BSCE">BSCE</option>
+            <!-- Add more courses as needed -->
+          </select>
+          <input type="text" id="modalStudentGrade" placeholder="Grade" />
+
+          <button type="submit">Enroll</button>
+        </form>
+      </div>
+    </div>
+
+    <script src="admin.js"></script>
+  </body>
+</html>

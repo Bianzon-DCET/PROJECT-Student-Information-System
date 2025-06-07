@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="admin.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h2>Admin Dashboard</h2>
+      <button class="logout-btn" onclick="logout()">Logout</button>
+
+      <h3>Student List</h3>
+      <table id="studentTable">
+        <tr>
+          <th>Name</th>
+          <th>ID</th>
+          <th>Course</th>
+          <th>Grade</th>
+          <th>Actions</th>
+        </tr>
+      </table>
+
+      <div class="form-section">
+        <h3>Enroll Student</h3>
+        <button onclick="openModal()">Enroll Student</button>
+      </div>
+    </div>
+    <div id="enrollModal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <h3>Enroll New Student</h3>
+        <form id="enrollForm">
+          <input
+            type="text"
+            id="modalStudentName"
+            placeholder="Name"
+            required
+          />
+          <input
+            type="text"
+            id="modalStudentID"
+            placeholder="Student ID"
+            required
+          />
+          <select id="modalStudentCourse" required>
+            <option value="">Select Course</option>
+            <option value="BSIT">BSIT</option>
+            <option value="BSCS">BSCS</option>
+            <option value="BSEd">BSEd</option>
+            <option value="BSBA">BSBA</option>
+            <option value="BSA">BSA</option>
+            <option value="BSCE">BSCE</option>
+          </select>
+          <input type="text" id="modalStudentGrade" placeholder="Grade" />
+          <input
+            type="email"
+            id="modalStudentEmail"
+            placeholder="Email"
+            required
+          />
+          <input
+            type="text"
+            id="modalStudentContact"
+            placeholder="Contact Number"
+          />
+
+          <button type="submit">Enroll</button>
+        </form>
+      </div>
+    </div>
+
+    <div id="scheduleModal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeScheduleModal()">&times;</span>
+        <h3>Set Student Schedule</h3>
+        <form id="scheduleForm">
+          <table id="scheduleTable">
+            <tr>
+              <th>Day</th>
+              <th>Time</th>
+              <th>Subject</th>
+              <th>Action</th>
+            </tr>
+          </table>
+          <div style="margin-top: 10px">
+            <select id="schedDay" style="width: 90px">
+              <option value="">Day</option>
+              <option>Monday</option>
+              <option>Tuesday</option>
+              <option>Wednesday</option>
+              <option>Thursday</option>
+              <option>Friday</option>
+              <option>Saturday</option>
+              <option>Sunday</option>
+            </select>
+            <input type="time" id="schedStartTime" style="width: 90px" />
+            <input type="time" id="schedEndTime" style="width: 90px" />
+            <select id="schedSubject" style="width: 120px">
+              <option value="">Subject</option>
+              <option>Programming</option>
+              <option>Networking</option>
+              <option>Algorithms</option>
+              <option>Data Science</option>
+              <option>Education Theory</option>
+              <option>Practice Teaching</option>
+              <option>Accounting</option>
+              <option>Marketing</option>
+              <option>Auditing</option>
+              <option>Taxation</option>
+              <option>Statics</option>
+              <option>Surveying</option>
+              <!-- Add more as needed -->
+            </select>
+            <button type="button" onclick="addScheduleRow()">Add</button>
+          </div>
+          <button type="submit" style="margin-top: 10px; width: 100%">
+            Save Schedule
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <script src="admin.js"></script>
+  </body>
+</html>
