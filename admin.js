@@ -258,6 +258,8 @@ window.onclick = function (event) {
 };
 
 // For student login
-window.location.href = "student-dashboard/student.html";
+window.location.href = "student.html";
 // For admin login
-window.location.href = "admin-dashboard/admin.html";
+window.location.href = "admin.html";
+// For logout
+window.location.href = "index.html";
