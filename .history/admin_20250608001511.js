@@ -256,3 +256,10 @@ window.onclick = function (event) {
   if (event.target == enrollModal) closeModal();
   if (event.target == scheduleModal) closeScheduleModal();
 };
+
+// For student login
+window.location.href = "student.html";
+// For admin login
+window.location.href = "admin.html";
+// For logout
+window.location.href = "index.html";
