@@ -13,11 +13,9 @@ function login() {
 
   if (matchedStudent) {
     localStorage.setItem("loggedInStudentID", matchedStudent.id);
-    // For student login
-    window.location.href = "student-dashboard/student.html";
+    window.location.href = "/student dashboard/student.html";
   } else if (username === "admin" && password === "admin123") {
-    // For admin login
-    window.location.href = "admin-dashboard/admin.html";
+    window.location.href = "/admin dashboard/admin.html";
   } else {
     alert("Invalid credentials!");
   }

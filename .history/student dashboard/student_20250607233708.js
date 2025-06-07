@@ -119,4 +119,6 @@ function loadStudentData() {
 function logout() {
   localStorage.removeItem("loggedInStudentID");
   window.location.href = "/index.html";
+  window.location.href = "/student dashboard/student.html";
+  window.location.href = "/admin dashboard/admin.html";
 }
