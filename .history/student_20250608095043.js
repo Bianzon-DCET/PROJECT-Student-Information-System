@@ -9,14 +9,14 @@
 document.addEventListener("DOMContentLoaded", function () {
   loadStudentData();
 
-  // Schedule Modal logic
-  const openScheduleBtn = document.getElementById("openScheduleModal");
-  const scheduleModal = document.getElementById("scheduleModal");
-  const closeScheduleBtn = document.getElementById("closeScheduleModal");
+  // Modal
+  const openBtn = document.getElementById("openScheduleModal");
+  const modal = document.getElementById("scheduleModal");
+  const closeBtn = document.getElementById("closeScheduleModal");
   const modalTable = document.getElementById("modalScheduleTable");
 
-  if (openScheduleBtn && scheduleModal && closeScheduleBtn && modalTable) {
-    openScheduleBtn.onclick = function () {
+  if (openBtn && modal && closeBtn && modalTable) {
+    openBtn.onclick = function () {
       modalTable.innerHTML = `
         <tr>
           <th>Day</th>
@@ -29,11 +29,12 @@ document.addEventListener("DOMContentLoaded", function () {
       var loggedInStudent = students.find(
         (student) => student.id === loggedInStudentID
       );
-      var scheduleArr = loggedInStudent.schedule || [];
-      if (scheduleArr.length === 0) {
+
+      var courseSched = schedules[loggedInStudent.course] || [];
+      if (courseSched.length === 0) {
         modalTable.innerHTML += `<tr><td colspan="3">No schedule available.</td></tr>`;
       } else {
-        scheduleArr.forEach((item) => {
+        courseSched.forEach((item) => {
           modalTable.innerHTML += `<tr>
             <td>${item.day}</td>
             <td>${item.time}</td>
@@ -41,59 +42,13 @@ document.addEventListener("DOMContentLoaded", function () {
           </tr>`;
         });
       }
-      scheduleModal.style.display = "block";
+      modal.style.display = "block";
     };
-    closeScheduleBtn.onclick = function () {
-      scheduleModal.style.display = "none";
+    closeBtn.onclick = function () {
+      modal.style.display = "none";
     };
     window.onclick = function (event) {
-      if (event.target == scheduleModal) scheduleModal.style.display = "none";
-    };
-  }
-
-  // Edit Profile Modal logic
-  const openProfileBtn = document.getElementById("openProfileModal");
-  const profileModal = document.getElementById("profileModal");
-  const closeProfileBtn = document.getElementById("closeProfileModal");
-  const profileForm = document.getElementById("profileForm");
-
-  if (openProfileBtn && profileModal && closeProfileBtn && profileForm) {
-    openProfileBtn.onclick = function () {
-      var students = JSON.parse(localStorage.getItem("students")) || [];
-      var loggedInStudentID = localStorage.getItem("loggedInStudentID");
-      var loggedInStudent = students.find(
-        (student) => student.id === loggedInStudentID
-      );
-      document.getElementById("editEmail").value = loggedInStudent.email || "";
-      document.getElementById("editContact").value =
-        loggedInStudent.contact || "";
-      profileModal.style.display = "block";
-    };
-    closeProfileBtn.onclick = function () {
-      profileModal.style.display = "none";
-    };
-    window.addEventListener("click", function (event) {
-      if (event.target == profileModal) profileModal.style.display = "none";
-    });
-    profileForm.onsubmit = function (e) {
-      e.preventDefault();
-      var students = JSON.parse(localStorage.getItem("students")) || [];
-      var loggedInStudentID = localStorage.getItem("loggedInStudentID");
-      var loggedInStudent = students.find(
-        (student) => student.id === loggedInStudentID
-      );
-      loggedInStudent.email = document.getElementById("editEmail").value.trim();
-      loggedInStudent.contact = document
-        .getElementById("editContact")
-        .value.trim();
-      var newPass = document.getElementById("editPassword").value.trim();
-      if (newPass) {
-        loggedInStudent.password = newPass;
-      }
-      localStorage.setItem("students", JSON.stringify(students));
-      alert("Profile updated!");
-      profileModal.style.display = "none";
-      loadStudentData();
+      if (event.target == modal) modal.style.display = "none";
     };
   }
 });
@@ -136,6 +91,7 @@ function loadStudentData() {
       </tr>
     `;
 
+    // Attendance
     attendanceList.innerHTML = "";
     if (loggedInStudent.attendance && loggedInStudent.attendance.length > 0) {
       loggedInStudent.attendance.forEach((date) => {
@@ -147,6 +103,7 @@ function loadStudentData() {
       attendanceList.innerHTML = "<li>No attendance records yet.</li>";
     }
 
+    // Schedule
     scheduleList.innerHTML = "";
     var courseSched = schedules[loggedInStudent.course] || [
       "No schedule available.",

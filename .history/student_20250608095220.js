@@ -136,6 +136,7 @@ function loadStudentData() {
       </tr>
     `;
 
+    // Attendance
     attendanceList.innerHTML = "";
     if (loggedInStudent.attendance && loggedInStudent.attendance.length > 0) {
       loggedInStudent.attendance.forEach((date) => {
@@ -147,6 +148,7 @@ function loadStudentData() {
       attendanceList.innerHTML = "<li>No attendance records yet.</li>";
     }
 
+    // Schedule
     scheduleList.innerHTML = "";
     var courseSched = schedules[loggedInStudent.course] || [
       "No schedule available.",
