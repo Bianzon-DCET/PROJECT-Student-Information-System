@@ -51,6 +51,7 @@ document.addEventListener("DOMContentLoaded", function () {
     };
   }
 
+  
   const openProfileBtn = document.getElementById("openProfileModal");
   const profileModal = document.getElementById("profileModal");
   const closeProfileBtn = document.getElementById("closeProfileModal");
