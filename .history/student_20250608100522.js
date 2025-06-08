@@ -9,7 +9,7 @@
 document.addEventListener("DOMContentLoaded", function () {
   loadStudentData();
 
-  // Schedule
+  // Schedule Modal logic
   const openScheduleBtn = document.getElementById("openScheduleModal");
   const scheduleModal = document.getElementById("scheduleModal");
   const closeScheduleBtn = document.getElementById("closeScheduleModal");
@@ -48,7 +48,7 @@ document.addEventListener("DOMContentLoaded", function () {
     };
   }
 
-  // Edit Profile
+  // Edit Profile Modal logic
   const openProfileBtn = document.getElementById("openProfileModal");
   const profileModal = document.getElementById("profileModal");
   const closeProfileBtn = document.getElementById("closeProfileModal");
@@ -91,6 +91,7 @@ document.addEventListener("DOMContentLoaded", function () {
     };
   }
 
+  // Combine modal background click logic for both modals
   window.onclick = function (event) {
     const scheduleModal = document.getElementById("scheduleModal");
     const profileModal = document.getElementById("profileModal");
