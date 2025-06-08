@@ -147,7 +147,8 @@ function deleteStudent(index) {
 }
 
 function logout() {
-  window.location.href = "/PROJECT-Student-Information-System/index.html";
+  // For GitHub Pages, this is safest:
+  window.location.href = "index.html";
 }
 
 function openModal() {

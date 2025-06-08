@@ -147,7 +147,7 @@ function deleteStudent(index) {
 }
 
 function logout() {
-  window.location.href = "/PROJECT-Student-Information-System/index.html";
+  window.location.href = "index.html";
 }
 
 function openModal() {
