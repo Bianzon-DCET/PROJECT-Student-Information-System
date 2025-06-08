@@ -149,16 +149,14 @@ function loadStudentData() {
     }
 
     scheduleList.innerHTML = "";
-    var scheduleArr = loggedInStudent.schedule || [];
-    if (scheduleArr.length === 0) {
-      scheduleList.innerHTML = "<li>No schedule available.</li>";
-    } else {
-      scheduleArr.forEach((item) => {
-        var li = document.createElement("li");
-        li.innerText = `${item.day} | ${item.time} | ${item.subject}`;
-        scheduleList.appendChild(li);
-      });
-    }
+    var courseSched = schedules[loggedInStudent.course] || [
+      "No schedule available.",
+    ];
+    courseSched.forEach((item) => {
+      var li = document.createElement("li");
+      li.innerText = item;
+      scheduleList.appendChild(li);
+    });
   }
 }
 
