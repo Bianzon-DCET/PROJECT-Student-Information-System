@@ -17,7 +17,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
   if (openScheduleBtn && scheduleModal && closeScheduleBtn && modalTable) {
     openScheduleBtn.onclick = function () {
-      console.log("Schedule modal open clicked");
       modalTable.innerHTML = `
         <tr>
           <th>Day</th>
@@ -57,7 +56,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
   if (openProfileBtn && profileModal && closeProfileBtn && profileForm) {
     openProfileBtn.onclick = function () {
-      console.log("Profile modal open clicked");
       var students = JSON.parse(localStorage.getItem("students")) || [];
       var loggedInStudentID = localStorage.getItem("loggedInStudentID");
       var loggedInStudent = students.find(
