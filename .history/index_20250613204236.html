@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SIS Login</title>
+    <link rel="stylesheet" href="project.css" />
+  </head>
+  <body>
+    <!-- Instructions Dropdowns -->
+    <div class="instructions">
+      <button class="accordion">Faculty (Admin) Instructions</button>
+      <div class="panel">
+        <ol>
+          <li>Click <b>Faculty</b> below.</li>
+          <li>
+            Login with:<br />
+            <b>Username:</b> <code>admin</code><br />
+            <b>Password:</b> <code>admin123</code>
+          </li>
+          <li>As admin, you can enroll students and set their schedules.</li>
+        </ol>
+      </div>
+      <button class="accordion">Student Instructions</button>
+      <div class="panel">
+        <ol>
+          <li>Click <b>Student</b> below.</li>
+          <li>
+            Login with your enrolled student name and password.<br />
+            <b>Default Password:</b> <code>student123</code>
+          </li>
+          <li>If you are not enrolled, ask the admin to add you first.</li>
+        </ol>
+      </div>
+    </div>
+    <div class="container">
+      <h2>Student Information System</h2>
+      <div id="role-select">
+        <button id="studentBtn" class="role-btn">Student</button>
+        <button id="facultyBtn" class="role-btn">Faculty</button>
+      </div>
+      <form id="loginForm" style="display: none">
+        <input type="hidden" id="role" value="student" />
+        <input
+          type="text"
+          id="username"
+          placeholder="Enter your username"
+          required
+        />
+        <input
+          type="password"
+          id="password"
+          placeholder="Enter your password"
+          required
+        />
+        <button type="submit">Login</button>
+        <p id="message"></p>
+      </form>
+    </div>
+    <script src="project.js"></script>
+    <script>
+      // Accordion logic
+      document.addEventListener("DOMContentLoaded", function () {
+        var acc = document.getElementsByClassName("accordion");
+        for (var i = 0; i < acc.length; i++) {
+          acc[i].onclick = function () {
+            this.classList.toggle("active");
+            var panel = this.nextElementSibling;
+            if (panel.style.maxHeight) {
+              panel.style.maxHeight = null;
+            } else {
+              panel.style.maxHeight = panel.scrollHeight + "px";
+            }
+          };
+        }
+      });
+    </script>
+  </body>
+</html>

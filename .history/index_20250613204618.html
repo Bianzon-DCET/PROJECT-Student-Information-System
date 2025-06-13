@@ -29,7 +29,7 @@
               Login with your enrolled student name and password.<br />
               <b>Default Password:</b> <code>student123</code>
             </li>
-            <li>YOU MUST ENROLL THE STUDENT FIRST AS AN ADMIN.</li>
+            <li>If you are not enrolled, ask the admin to add you first.</li>
           </ol>
         </div>
       </div>
@@ -59,21 +59,5 @@
       </div>
     </div>
     <script src="project.js"></script>
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        var acc = document.getElementsByClassName("accordion");
-        for (var i = 0; i < acc.length; i++) {
-          acc[i].onclick = function () {
-            this.classList.toggle("active");
-            var panel = this.nextElementSibling;
-            if (panel.style.maxHeight) {
-              panel.style.maxHeight = null;
-            } else {
-              panel.style.maxHeight = panel.scrollHeight + "px";
-            }
-          };
-        }
-      });
-    </script>
   </body>
 </html>
