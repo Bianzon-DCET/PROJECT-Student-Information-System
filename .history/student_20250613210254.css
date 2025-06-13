@@ -181,6 +181,7 @@ ul {
     background: #0056b3;
 }
 
+/* Responsive adjustments */
 @media (max-width: 600px) {
 
     .main-wrapper,

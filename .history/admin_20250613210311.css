@@ -169,8 +169,8 @@ button:hover {
     color: white;
 }
 
+/* Responsive adjustments */
 @media (max-width: 600px) {
-
     .main-wrapper,
     .container {
         width: 98vw !important;
@@ -181,12 +181,10 @@ button:hover {
         border-radius: 0 !important;
         box-shadow: none !important;
     }
-
     .instructions {
         max-width: 98vw !important;
         margin: 10px auto 0 auto !important;
     }
-
     .modal-content {
         width: 98vw !important;
         max-width: 98vw !important;
@@ -194,31 +192,21 @@ button:hover {
         margin: 30px auto !important;
         border-radius: 0 !important;
     }
-
-    input,
-    select,
-    button {
+    input, select, button {
         width: 98% !important;
         font-size: 1em !important;
     }
-
-    .logout-btn,
-    #openProfileModal {
+    .logout-btn, #openProfileModal {
         position: static !important;
         width: 100% !important;
         margin: 10px 0 !important;
         right: unset !important;
         top: unset !important;
     }
-
-    h2,
-    h3 {
+    h2, h3 {
         font-size: 1.2em !important;
     }
-
-    table,
-    th,
-    td {
+    table, th, td {
         font-size: 0.95em !important;
         padding: 4px !important;
     }
