@@ -37,3 +37,23 @@ button {
 button:hover {
     background-color: #0056b3;
 }
+
+.role-btn {
+    padding: 12px 24px;
+    margin: 10px;
+    font-size: 1.1em;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.role-btn:hover {
+    background-color: #0056b3;
+}
+
+#role-select {
+    margin-bottom: 20px;
+}

@@ -1,27 +1,3 @@
-document.addEventListener("DOMContentLoaded", function () {
-  const studentBtn = document.getElementById("studentBtn");
-  const facultyBtn = document.getElementById("facultyBtn");
-  const loginForm = document.getElementById("loginForm");
-  const roleInput = document.getElementById("role");
-  const roleSelect = document.getElementById("role-select");
-
-  studentBtn.onclick = function () {
-    roleInput.value = "student";
-    loginForm.style.display = "block";
-    roleSelect.style.display = "none";
-  };
-  facultyBtn.onclick = function () {
-    roleInput.value = "faculty";
-    loginForm.style.display = "block";
-    roleSelect.style.display = "none";
-  };
-
-  loginForm.onsubmit = function (e) {
-    e.preventDefault();
-    login();
-  };
-});
-
 function login() {
   var role = document.getElementById("role").value;
   var username = document.getElementById("username").value;
@@ -42,10 +18,12 @@ function login() {
       return;
     }
   } else if (role === "faculty") {
+    // For demo: username: admin, password: admin123
     if (username === "admin" && password === "admin123") {
       window.location.href = "admin.html";
       return;
     }
+    // You can add more faculty logic here if needed
   }
 
   alert("Invalid credentials!");

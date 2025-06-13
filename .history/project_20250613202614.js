@@ -1,27 +1,3 @@
-document.addEventListener("DOMContentLoaded", function () {
-  const studentBtn = document.getElementById("studentBtn");
-  const facultyBtn = document.getElementById("facultyBtn");
-  const loginForm = document.getElementById("loginForm");
-  const roleInput = document.getElementById("role");
-  const roleSelect = document.getElementById("role-select");
-
-  studentBtn.onclick = function () {
-    roleInput.value = "student";
-    loginForm.style.display = "block";
-    roleSelect.style.display = "none";
-  };
-  facultyBtn.onclick = function () {
-    roleInput.value = "faculty";
-    loginForm.style.display = "block";
-    roleSelect.style.display = "none";
-  };
-
-  loginForm.onsubmit = function (e) {
-    e.preventDefault();
-    login();
-  };
-});
-
 function login() {
   var role = document.getElementById("role").value;
   var username = document.getElementById("username").value;
