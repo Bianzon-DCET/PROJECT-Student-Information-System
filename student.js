@@ -49,7 +49,6 @@ document.addEventListener("DOMContentLoaded", function () {
     };
   }
 
-  // Edit Profile
   const openProfileBtn = document.getElementById("openProfileModal");
   const profileModal = document.getElementById("profileModal");
   const closeProfileBtn = document.getElementById("closeProfileModal");
@@ -99,6 +98,14 @@ document.addEventListener("DOMContentLoaded", function () {
     if (event.target === scheduleModal) scheduleModal.style.display = "none";
     if (event.target === profileModal) profileModal.style.display = "none";
   };
+
+  var idInput = document.getElementById("modalStudentID");
+  var contactInput = document.getElementById("modalStudentContact");
+  if (idInput) allowOnlyNumbers(idInput);
+  if (contactInput) allowOnlyNumbers(contactInput);
+
+  var editContact = document.getElementById("editContact");
+  if (editContact) allowOnlyNumbers(editContact);
 });
 
 function loadStudentData() {
@@ -109,8 +116,7 @@ function loadStudentData() {
   var studentEmail = document.getElementById("studentEmail");
   var studentContact = document.getElementById("studentContact");
   var attendanceList = document.getElementById("attendanceList");
-  var billingStatus = document.getElementById("billingStatus");
-
+  var attendanceTable = document.getElementById("attendanceTable");
   var students = JSON.parse(localStorage.getItem("students")) || [];
   var loggedInStudentID = localStorage.getItem("loggedInStudentID");
 
@@ -124,7 +130,6 @@ function loadStudentData() {
     studentCourse.innerText = loggedInStudent.course;
     studentEmail.innerText = loggedInStudent.email || "N/A";
     studentContact.innerText = loggedInStudent.contact || "N/A";
-    billingStatus.innerText = loggedInStudent.billing || "Unpaid";
 
     // Grades
     gradeTable.innerHTML = `
@@ -138,15 +143,28 @@ function loadStudentData() {
       </tr>
     `;
 
-    attendanceList.innerHTML = "";
+    // Attendance
+    attendanceTable.innerHTML = `
+      <tr>
+        <th>Date</th>
+        <th>Status</th>
+      </tr>
+    `;
     if (loggedInStudent.attendance && loggedInStudent.attendance.length > 0) {
       loggedInStudent.attendance.forEach((date) => {
-        var li = document.createElement("li");
-        li.innerText = date;
-        attendanceList.appendChild(li);
+        attendanceTable.innerHTML += `
+          <tr>
+            <td>${date}</td>
+            <td><span class="attendance-present">Present</span></td>
+          </tr>
+        `;
       });
     } else {
-      attendanceList.innerHTML = "<li>No attendance records yet.</li>";
+      attendanceTable.innerHTML += `
+        <tr>
+          <td colspan="2">No attendance records yet.</td>
+        </tr>
+      `;
     }
   }
 }
@@ -154,4 +172,10 @@ function loadStudentData() {
 function logout() {
   localStorage.removeItem("loggedInStudentID");
   window.location.href = "/PROJECT-Student-Information-System/index.html";
+}
+
+function allowOnlyNumbers(input) {
+  input.addEventListener("input", function () {
+    this.value = this.value.replace(/\D/g, "").slice(0, 12);
+  });
 }

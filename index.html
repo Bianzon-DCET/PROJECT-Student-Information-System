@@ -5,36 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>SIS Login</title>
     <link rel="stylesheet" href="project.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <div class="main-wrapper">
-      <div class="instructions">
-        <button class="accordion">Faculty (Admin) Instructions</button>
-        <div class="panel">
-          <ol>
-            <li>Click <b>Faculty</b> below.</li>
-            <li>
-              Login with:<br />
-              <b>Username:</b> <code>admin</code><br />
-              <b>Password:</b> <code>admin123</code>
-            </li>
-            <li>As admin, you can enroll students and set their schedules.</li>
-          </ol>
-        </div>
-        <button class="accordion">Student Instructions</button>
-        <div class="panel">
-          <ol>
-            <li>Click <b>Student</b> below.</li>
-            <li>
-              Login with your enrolled student name and password.<br />
-              <b>Default Password:</b> <code>student123</code>
-            </li>
-            <li>YOU MUST ENROLL THE STUDENT FIRST AS AN ADMIN.</li>
-          </ol>
-        </div>
-      </div>
-      <div class="container">
-        <h2>Student Information System of P.U.P Binan Campus</h2>
+      <div class="container glass">
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/6/68/PUP.png"
+          alt="PUP Logo"
+          class="logo"
+        />
+        <h2>Student Information System</h2>
+        <h3>P.U.P Binan Campus</h3>
         <div id="role-select">
           <button id="studentBtn" class="role-btn">Student</button>
           <button id="facultyBtn" class="role-btn">Faculty</button>
@@ -44,36 +31,22 @@
           <input
             type="text"
             id="username"
-            placeholder="Enter your username"
+            placeholder="Username"
             required
+            autocomplete="username"
           />
           <input
             type="password"
             id="password"
-            placeholder="Enter your password"
+            placeholder="Password"
             required
+            autocomplete="current-password"
           />
-          <button type="submit">Login</button>
+          <button type="submit" class="login-btn">Login</button>
           <p id="message"></p>
         </form>
       </div>
     </div>
     <script src="project.js"></script>
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        var acc = document.getElementsByClassName("accordion");
-        for (var i = 0; i < acc.length; i++) {
-          acc[i].onclick = function () {
-            this.classList.toggle("active");
-            var panel = this.nextElementSibling;
-            if (panel.style.maxHeight) {
-              panel.style.maxHeight = null;
-            } else {
-              panel.style.maxHeight = panel.scrollHeight + "px";
-            }
-          };
-        }
-      });
-    </script>
   </body>
 </html>
