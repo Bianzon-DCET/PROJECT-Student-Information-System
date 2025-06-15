@@ -65,14 +65,15 @@ h3 {
 }
 
 input {
+    display: block;
     margin: 12px auto;
     padding: 10px 12px;
+    width: 85%;
     border: 1.5px solid #b0c4de;
     border-radius: 6px;
     font-size: 1em;
     background: #f7fafc;
     transition: border 0.2s, box-shadow 0.2s;
-    box-sizing: border-box;
 }
 
 input:focus {
@@ -148,25 +149,24 @@ button:hover,
     position: relative;
 }
 
-/* Username and password wrapper same width and centered */
-#loginForm input[type="text"]#username,
+/* Ensure both username and password fields are the same width and aligned */
+#loginForm input[type="text"],
 #loginForm .password-wrapper {
+    width: 90%;
+    max-width: 320px;
+    margin: 12px auto;
+    display: block;
+    box-sizing: border-box;
+}
+
+.password-wrapper {
+    position: relative;
     width: 90%;
     max-width: 320px;
     margin: 12px auto;
     box-sizing: border-box;
 }
 
-/* Password wrapper must be relative for absolute toggle */
-.password-wrapper {
-    position: relative;
-    width: 100%;
-    max-width: 320px;
-    margin: 12px auto;
-    box-sizing: border-box;
-}
-
-/* Password input fills wrapper */
 .password-wrapper input[type="password"],
 .password-wrapper input[type="text"] {
     width: 100%;

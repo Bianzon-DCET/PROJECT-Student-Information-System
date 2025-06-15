@@ -20,9 +20,12 @@ document.addEventListener("DOMContentLoaded", function () {
     e.preventDefault();
     login();
   };
+
+  // Password toggle
   const passwordInput = document.getElementById("password");
   const togglePassword = document.getElementById("togglePassword");
   if (togglePassword && passwordInput) {
+    // SVG icons
     const eye = `<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none" viewBox="0 0 24 24"><path stroke="#888" stroke-width="2" d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7S1 12 1 12Z"/><circle cx="12" cy="12" r="3" stroke="#888" stroke-width="2"/></svg>`;
     const eyeOff = `<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none" viewBox="0 0 24 24"><path stroke="#888" stroke-width="2" d="M3 3l18 18M10.7 6.3A9.77 9.77 0 0 1 12 5c7 0 11 7 11 7a19.6 19.6 0 0 1-5.1 5.9M6.1 6.1A19.6 19.6 0 0 0 1 12s4 7 11 7a9.77 9.77 0 0 0 3.7-.7"/><circle cx="12" cy="12" r="3" stroke="#888" stroke-width="2"/></svg>`;
 
