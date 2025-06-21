@@ -26,6 +26,7 @@ document.addEventListener("DOMContentLoaded", function () {
   if (idInput) allowOnlyNumbers(idInput);
   if (contactInput) allowOnlyNumbers(contactInput);
 
+  // For student dashboard edit profile
   var editContact = document.getElementById("editContact");
   if (editContact) allowOnlyNumbers(editContact);
 });
@@ -69,11 +70,13 @@ function enrollStudent() {
   var newID = idInput.value.trim();
   var newName = nameInput.value.trim();
 
+  // Check for unique ID
   var isDuplicateID = students.some((student, idx) => {
     if (editMode && idx === editIndex) return false;
     return student.id === newID;
   });
 
+  // Check for unique Name
   var isDuplicateName = students.some((student, idx) => {
     if (editMode && idx === editIndex) return false;
     return student.name.toLowerCase() === newName.toLowerCase();
@@ -291,6 +294,7 @@ window.onclick = function (event) {
   if (event.target == scheduleModal) closeScheduleModal();
 };
 
+// Add this to both admin.js and student.js
 function allowOnlyNumbers(input) {
   input.addEventListener("input", function () {
     this.value = this.value.replace(/\D/g, "").slice(0, 12);

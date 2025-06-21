@@ -151,9 +151,7 @@ function loadStudentData() {
       if (loggedInStudent.profilePic) {
         studentProfilePic.src = loggedInStudent.profilePic;
       } else {
-        studentProfilePic.src =
-          "https://ui-avatars.com/api/?name=" +
-          encodeURIComponent(loggedInStudent.name || "Student");
+        studentProfilePic.src = "https://ui-avatars.com/api/?name=" + encodeURIComponent(loggedInStudent.name || "Student");
       }
     }
 
